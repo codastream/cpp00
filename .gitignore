@@ -1,5 +1,5 @@
 .vscode
-*.o
+*/*.o
 ex00/megaphone
 ex01/phonebook
 ex02/account
