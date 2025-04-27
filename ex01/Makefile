@@ -53,7 +53,7 @@ RESET_BG	= \033[0m
 
 #================================DIRS============================#
 
-SRC_DIR			:=  srcs
+SRC_DIR			:=	srcs
 INCLUDES_DIR	:=	includes
 BUILD_DIR		:=	.build
 
@@ -63,24 +63,25 @@ BUILD_DIR		:=	.build
 
 SRCS_FILES:=	PhoneBook.cpp\
 				Contact.cpp\
+				main.cpp\
 
 SRCS:=			$(addprefix $(SRC_DIR)/, $(SRCS_FILES))
 
 #=============================OBJECTS===========================#
 
-OBJS:=			${SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o}
+OBJS:=			${SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o}
 
 #===============================DEPS=============================#
 
-DEPS:=			${SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.d}
+DEPS:=			${SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.d}
 
 #=============================INCLUDES===========================#
 
-INC			:=	-I $(INCLUDES_DIR)
+INC				:=	-I $(INCLUDES_DIR)
 
 #================================DIR=============================#
 
-DIRS			:=	$(sort $(shell dirname $(OBJS))) #no duplicates
+DIRS			:=	$(sort $(shell dirname $(OBJS)))
 
 #===============================RULES============================#
 
@@ -89,16 +90,13 @@ all: $(NAME)
 $(DIRS):
 	@mkdir -p $@
 
-$(DIRS_BONUS):
-	@mkdir -p $@
-
 $(NAME): $(OBJS)
 	@echo "\n$(GREEN)Create binaries$(NOC)"
 	@$(CC) $(CFLAGS) $(OBJS) $(INC) -o $@
 
 # $$@D gets directory from current target - pipe prevents from relink
 # tput cols to get columns nb of terminal
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(DIRS)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(DIRS)
 	@mkdir -p $(BUILD_DIR)
 	@if [ $(NB_COMP) -eq 1 ]; then echo "$(BOLD)Compilation of source files :$(NOC)";fi
 	$(eval PERCENT=$(shell expr $(NB_COMP)00 "/" $(TO_COMP)))
@@ -121,6 +119,6 @@ fclean: clean
 re: fclean
 	@make
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re $(DIRS)
 
 -include $(DEPS)
