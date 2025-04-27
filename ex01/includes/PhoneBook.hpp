@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:00:27 by fpetit            #+#    #+#             */
-/*   Updated: 2025/04/27 21:05:20 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/04/27 21:43:16 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class PhoneBook
 
 	PhoneBook(void);
 	~PhoneBook(void);
-	void	addContact(Contact contact);
+	void	addContact(Contact &contact);
 	void	displayPhonebook(void);
 };
 

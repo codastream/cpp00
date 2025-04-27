@@ -6,13 +6,13 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 17:50:04 by fpetit            #+#    #+#             */
-/*   Updated: 2025/04/27 21:33:12 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/04/27 21:56:05 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Project.hpp"
 
-void	tryAddContact(PhoneBook book)
+void	tryAddContact(PhoneBook &book)
 {
 	Contact		contact;
 	std::string	secret;
@@ -21,11 +21,11 @@ void	tryAddContact(PhoneBook book)
 	putnl("First name ?");
 	std::cin >> contact.first_name;
 	putnl("Family name ?");
-	std::cin >> contact.first_name;
+	std::cin >> contact.last_name;
 	putnl("Nickname ?");
-	std::cin >> contact.first_name;
+	std::cin >> contact.nickname;
 	putnl("Phone number ?");
-	std::cin >> contact.first_name;
+	std::cin >> contact.phone_number;
 	putnl("Darkest secret ?");
 	std::cin >> secret;
 	contact.setSecret(secret);
@@ -38,7 +38,7 @@ void	tryAddContact(PhoneBook book)
 /*
 Display choices from index 1 to nb_contacts
 */
-void	searchContact(PhoneBook book)
+void	searchContact(PhoneBook &book)
 {
 	std::string	index;
 	int			conv;
@@ -53,8 +53,10 @@ void	searchContact(PhoneBook book)
 	shouldReprompt = true;
 	while (shouldReprompt)
 	{
-		putnl("Index of contact to display ?");
+		putnl("Index of contact to display ? (BACK to come back)");
 		std::cin >> index;
+		if (!index.compare("BACK"))
+			break;
 		conv = std::atoi(index.c_str());
 		if (conv <= 0 || conv > book.nb_contacts)
 			putnl("Incorrect index");

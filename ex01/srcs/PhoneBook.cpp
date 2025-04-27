@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:00:21 by fpetit            #+#    #+#             */
-/*   Updated: 2025/04/27 21:14:23 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/04/27 21:53:44 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	PhoneBook::reorderByAgeDesc(void)
 	}
 }
 
-void	PhoneBook::addContact(Contact contact)
+void	PhoneBook::addContact(Contact &contact)
 {
 	if (this->nb_contacts == MAX_CONTACTS)
 		reorderByAgeDesc();
@@ -54,7 +54,7 @@ void	PhoneBook::addContact(Contact contact)
 
 void	PhoneBook::displayPhonebook(void)
 {
-	for (int i = 0; i <= this->nb_contacts; i++)
+	for (int i = 0; i < this->nb_contacts; i++)
 	{
 		this->contacts[i].displayForBook(i + 1);
 	}
