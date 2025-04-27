@@ -63,6 +63,8 @@ BUILD_DIR		:=	.build
 
 SRCS_FILES:=	PhoneBook.cpp\
 				Contact.cpp\
+				Ops.cpp\
+				Util.cpp\
 				main.cpp\
 
 SRCS:=			$(addprefix $(SRC_DIR)/, $(SRCS_FILES))

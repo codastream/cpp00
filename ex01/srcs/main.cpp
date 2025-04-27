@@ -6,14 +6,35 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:01:28 by fpetit            #+#    #+#             */
-/*   Updated: 2025/04/27 15:33:13 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/04/27 21:15:41 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Project.hpp"
 
-int	main()
+int	main(int ac, char **av)
 {
-	Contact contact;
+	(void) av;
+	std::string command;
+	PhoneBook	book;
+	bool		running;
+
+	if (ac != 1)
+		putnl(MSG_ERRARG);
+	book = PhoneBook();
+	running = true;
+	while (running)
+	{
+		putnl(MSG_COMMAND);
+		std::cin >> command;
+		if (!command.compare("ADD"))
+			tryAddContact(book);
+		else if (!command.compare("SEARCH"))
+			searchContact(book);
+		else if (!command.compare("EXIT"))
+			running = false;
+		else
+			putnl(MSG_COMMAND);
+	}
 	return (0);
 }

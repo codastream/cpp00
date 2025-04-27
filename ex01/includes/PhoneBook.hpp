@@ -1,15 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook..hpp                                     :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:00:27 by fpetit            #+#    #+#             */
-/*   Updated: 2025/04/27 15:32:47 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/04/27 21:05:20 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_BOOK_HPP
-# define PHONE_BOOK_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+class PhoneBook
+{
+	private:
+	void	reorderByAgeDesc(void);
+
+	public:
+
+	Contact contacts[8];
+	int		nb_contacts;
+
+	PhoneBook(void);
+	~PhoneBook(void);
+	void	addContact(Contact contact);
+	void	displayPhonebook(void);
+};
+
 #endif
