@@ -65,18 +65,14 @@ BUILD_DIR		:=	.build
 
 # no duplicates
 
-SRCS_FILES:=	PhoneBook.cpp\
-				Contact.cpp\
+SRCS_FILES:=	Account.cpp\
+				tests.cpp\
 
 SRCS:=			$(addprefix $(SRC_DIR)/, $(SRCS_FILES))
 
 #=============================OBJECTS===========================#
 
-OBJS:=			${SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o}
-
-#===============================DEPS=============================#
-
-DEPS:=			${SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.d}
+OBJS:=			${SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o}
 
 #=============================INCLUDES===========================#
 
@@ -102,7 +98,7 @@ $(NAME): $(OBJS)
 
 # $$@D gets directory from current target - pipe prevents from relink
 # tput cols to get columns nb of terminal
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(DIRS)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(DIRS)
 	@mkdir -p $(BUILD_DIR)
 	@if [ $(NB_COMP) -eq 1 ]; then echo "$(BOLD)Compilation of source files :$(NOC)";fi
 	$(eval PERCENT=$(shell expr $(NB_COMP)00 "/" $(TO_COMP)))
@@ -126,5 +122,3 @@ re: fclean
 	@make
 
 .PHONY: all clean fclean re
-
--include $(DEPS)
