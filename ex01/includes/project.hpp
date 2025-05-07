@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:15:19 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 16:36:14 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/05/07 20:42:43 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <cstdlib>
 # include <limits>
+# include <cctype>
 # include "Contact.hpp"
 # include "PhoneBook.hpp"
 
@@ -36,5 +37,7 @@ void	searchContact(PhoneBook &book);
 void	tryAddContact(PhoneBook &book);
 void	putnl(std::string msg);
 void	put_blue(std::string msg);
+void	put_green_nl(std::string msg);
+void	put_red_nl(std::string msg);
 
 #endif
