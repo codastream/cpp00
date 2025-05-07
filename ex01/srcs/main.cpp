@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:01:28 by fpetit            #+#    #+#             */
-/*   Updated: 2025/04/27 21:52:41 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/05/07 15:58:58 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	while (running)
 	{
 		putnl(MSG_COMMAND);
-		std::cin >> command;
+		std::getline(std::cin, command);
 		if (!command.compare("ADD"))
 			tryAddContact(book);
 		else if (!command.compare("SEARCH"))

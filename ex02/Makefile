@@ -3,14 +3,10 @@ NAME		:=	account
 #==============================COMPIL===========================#
 
 CC			:=	g++
-CFLAGS		:=	-Wall -Wextra -Werror
+CFLAGS		:=	-Wall -Wextra -Werror -std=c++98
 
 ifeq ($(DEBUG), 1)
 	CFLAGS += -g
-endif
-
-ifeq ($(98), 1)
-	CFLAGS += std=c++98
 endif
 
 ifeq ($(SAN), 1)

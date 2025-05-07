@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 17:50:04 by fpetit            #+#    #+#             */
-/*   Updated: 2025/04/28 18:59:07 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/05/07 16:06:33 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,22 @@
 std::string	getNonEmptyField(const std::string& prompt)
 {
 	std::string	input;
+	size_t		iStart;
+
 	do
 	{
 		putnl(prompt);
-		std::cin >> input;
-		if (input.empty())
+		std::getline(std::cin, input);
+		iStart = input.find_first_not_of(" \t");
+		if (iStart == std::string::npos)
+		{
 			putnl("Please enter a value");
+			input.clear();
+		}
+		else
+		{
+			input = input.substr(iStart, input.find_last_not_of(" \t") - iStart + 1);
+		}
 	} while (input.empty());
 	return (input);
 }
@@ -62,7 +72,7 @@ void	searchContact(PhoneBook &book)
 	while (shouldReprompt)
 	{
 		putnl("Index of contact to display ? (BACK to come back)");
-		std::cin >> index;
+		std::getline(std::cin, index);
 		if (!index.compare("BACK"))
 			break;
 		conv = std::atoi(index.c_str());

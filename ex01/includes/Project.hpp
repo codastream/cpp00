@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:15:19 by fpetit            #+#    #+#             */
-/*   Updated: 2025/04/28 18:59:13 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/05/07 16:05:19 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,19 @@
 
 # include <iostream>
 # include <cstdlib>
+# include <limits>
 # include "Contact.hpp"
 # include "PhoneBook.hpp"
+
+# define NC      "\033[0m"
+# define BLACK   "\033[30m"
+# define RED     "\033[31m"
+# define GREEN   "\033[32m"
+# define YELLOW  "\033[33m"
+# define BLUE    "\033[34m"
+# define MAGENTA "\033[35m"
+# define CYAN    "\033[36m"
+# define WHITE   "\033[37m"
 
 # define MSG_COMMAND "Please enter any of following : ADD, SEARCH, EXIT"
 # define MSG_ERRARG "Usage : ./phonebook (No argument required)"
@@ -24,5 +35,6 @@
 void	searchContact(PhoneBook &book);
 void	tryAddContact(PhoneBook &book);
 void	putnl(std::string msg);
+void	putnlblue(std::string msg);
 
 #endif
