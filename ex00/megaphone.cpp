@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 20:25:20 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 14:42:02 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/05/07 18:23:49 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ int	main(int ac, char **av)
 		{
 			arg = av[i];
 			capitalize(arg);
-			if (!arg.empty())
-				std::cout << arg << " ";
+			std::cout << arg;
 			i++;
 		}
 		arg = av[i];
