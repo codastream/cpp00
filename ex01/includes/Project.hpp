@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:15:19 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 16:05:19 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/05/07 16:36:14 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@
 void	searchContact(PhoneBook &book);
 void	tryAddContact(PhoneBook &book);
 void	putnl(std::string msg);
-void	putnlblue(std::string msg);
+void	put_blue(std::string msg);
 
 #endif

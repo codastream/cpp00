@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:02:06 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 16:31:13 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/05/07 16:37:18 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@ void	Contact::displayForBook(int index)
 
 void	Contact::displayDetailed(void)
 {
-	putnlblue("Name:");
+	put_blue("Name\t");
 	putnl(this->first_name);
-	putnlblue("Last name:");
+	put_blue("Last name");
 	putnl(this->last_name);
-	putnlblue("Nickname:");
+	put_blue("Nickname");
 	putnl(this->nickname);
-	putnlblue("Phone:");
+	put_blue("Phone\t");
 	putnl(this->phone_number);
-	putnlblue("Secret:");
+	put_blue("Secret\t");
 	putnl(this->darkest_secret);
 }
