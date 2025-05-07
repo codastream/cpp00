@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:02:06 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 16:04:13 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/05/07 16:31:13 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	putColumn(std::string field)
 	len = field.length();
 	if (len > 10)
 	{
-		std::cout << field.substr(0, 8);
+		std::cout << field.substr(0, 9);
 		std::cout << ".";
 	}
 	else if (len < 10)
