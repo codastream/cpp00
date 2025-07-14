@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 17:50:04 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 20:53:37 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/14 13:33:50 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ bool		isPhoneNumber(const std::string& s)
 {
 	for (size_t i = 0; i < s.length(); i++)
 	{
-		if (std::isdigit(s[i]))
-			return (true);
+		if (!std::isdigit(s[i]))
+		{
+			return (false);
+		}
 	}
-	return (false);
+	return (true);
 }
 
 std::string	getNonEmptyField(const std::string& prompt, bool *success)
@@ -37,13 +39,15 @@ std::string	getNonEmptyField(const std::string& prompt, bool *success)
 		{
 			put_red_nl("Please enter a non empty value");
 			input.clear();
+			return ("");
 		}
-		else if (!prompt.compare("Phone number?") & !isPhoneNumber(input))
+		else if (!prompt.compare("Phone number?") && !isPhoneNumber(input))
 		{
-			put_red_nl("A phone number must have at least one number in it");
+			put_red_nl("A phone number should be made of digits only");
 			input.clear();
+			return ("");
 		}
-		if (!input.empty())
+		else if (!input.empty())
 		{
 			input = input.substr(iStart, input.find_last_not_of(" \t") - iStart + 1);
 			*success = true;
@@ -120,5 +124,4 @@ void	searchContact(PhoneBook &book)
 		else
 			book.getContactByIndex(conv - 1)->displayDetailed();
 	}
-
 }
