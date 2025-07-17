@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 20:25:20 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 18:23:49 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/17 18:18:26 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,8 @@ void	capitalize(std::string& s)
 	int	len = s.length();
 	for (int i = 0; i < len; i++)
 	{
-		s[i] = toupper(s[i]);
+		s[i] = std::toupper(s[i]);
 	}
-}
-
-bool	areAllEmpty(int ac, char **av)
-{
-	int			i;
-	std::string	arg;
-
-	i = 1;
-	while (i < ac)
-	{
-		arg = av[i];
-		if (!arg.empty())
-			return (false);
-		i++;
-	}
-	return (true);
 }
 
 int	main(int ac, char **av)
@@ -43,7 +27,7 @@ int	main(int ac, char **av)
 	int	i;
 	std::string arg;
 
-	if (ac == 1 || areAllEmpty(ac, av))
+	if (ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
 	{

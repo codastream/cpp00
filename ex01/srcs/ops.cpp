@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 17:50:04 by fpetit            #+#    #+#             */
-/*   Updated: 2025/07/14 13:33:50 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/17 18:45:31 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,23 @@ std::string	getNonEmptyField(const std::string& prompt, bool *success)
 	return (input);
 }
 
-void	tryAddContact(PhoneBook &book)
+void	refill8Contacts(PhoneBook& book)
+{
+	for (int i = 1; i <= 8; i++)
+	{
+		std::ostringstream str;
+		Contact contact = Contact();
+		str << i;
+		contact.setFirstName(str.str());
+		contact.setLastName(str.str());
+		contact.setNickName(str.str());
+		contact.setPhoneNumber(str.str());
+		contact.setSecret(str.str());
+		book.addContact(contact);
+	}
+}
+
+void	tryAddContact(PhoneBook& book)
 {
 	Contact		contact;
 	std::string	firstName;
@@ -103,7 +119,6 @@ void	searchContact(PhoneBook &book)
 {
 	std::string	index;
 	int			conv;
-	bool		shouldReprompt;
 
 	if (book.getNbContacts() == 0)
 	{
@@ -111,17 +126,21 @@ void	searchContact(PhoneBook &book)
 		return ;
 	}
 	book.displayPhonebook();
-	shouldReprompt = true;
-	while (shouldReprompt)
+	putnl("Index of contact to display ? (BACK to come back, FILL for quick fill)");
+	while (std::getline(std::cin, index))
 	{
-		putnl("Index of contact to display ? (BACK to come back)");
-		std::getline(std::cin, index);
-		if (!index.compare("BACK"))
+		if (index == "BACK")
 			break;
+		if (index == "FILL")
+		{
+			refill8Contacts(book);
+			break;
+		}
 		conv = std::atoi(index.c_str());
 		if (conv <= 0 || conv > book.getNbContacts())
 			put_red_nl("Incorrect index");
 		else
 			book.getContactByIndex(conv - 1)->displayDetailed();
+		putnl("Index of contact to display ? (BACK to come back, , FILL for quick fill)");
 	}
 }

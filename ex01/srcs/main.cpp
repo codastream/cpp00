@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:01:28 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 20:53:50 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/17 18:26:09 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ int	main(int ac, char **av)
 	PhoneBook	book;
 
 	if (ac != 1)
+	{
 		putnl(MSG_ERRARG);
+		return (1);
+	}
 	book = PhoneBook();
 	putnl(MSG_COMMAND);
 	while (std::getline(std::cin, command) && command.compare("EXIT"))

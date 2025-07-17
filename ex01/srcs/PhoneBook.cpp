@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:00:21 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 20:51:40 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/17 18:47:49 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,20 @@ void	swapContacts(Contact *p1, Contact *p2)
 	*p2 = tmp;
 }
 
-/*
-Brings the oldest contact to last index so that it can be replaced by next addition
-*/
-void	PhoneBook::_reorderByAgeDesc(void)
-{
-	for (int i = 0; i < this->getNbContacts() - 1; i++)
-	{
-		swapContacts(&this->_contacts[i], &this->_contacts[i + 1]);
-	}
-}
-
 void	PhoneBook::addContact(Contact& contact)
 {
+	unsigned int	addIndex;
+
 	if (this->getNbContacts() == MAX_CONTACTS)
-		_reorderByAgeDesc();
+	{
+		addIndex = 0;
+	}
 	else
+	{
 		this->_incrementNbContacts();
-	_setContactByIndex(contact, this->getNbContacts() - 1);
+		addIndex = this->getNbContacts() - 1;
+	}
+	_setContactByIndex(contact, addIndex);
 }
 
 void	PhoneBook::displayPhonebook(void)
@@ -60,12 +56,12 @@ void	PhoneBook::displayPhonebook(void)
 	}
 }
 
-Contact*	PhoneBook::getContacts( void )
+Contact*	PhoneBook::getContacts(void)
 {
 	return (_contacts);
 }
 
-Contact*	PhoneBook::getContactByIndex( int index )
+Contact*	PhoneBook::getContactByIndex(int index)
 {
 	if (index >= 0 && index <= MAX_CONTACTS - 1)
 	{
@@ -75,12 +71,12 @@ Contact*	PhoneBook::getContactByIndex( int index )
 		return (0);
 }
 
-int 		PhoneBook::getNbContacts( void )
+int 		PhoneBook::getNbContacts(void)
 {
 	return (_nbContacts);
 }
 
-void	PhoneBook::_setContactByIndex( Contact& contact, int index )
+void	PhoneBook::_setContactByIndex(Contact& contact, int index)
 {
 	if (index >= 0 && index <= MAX_CONTACTS - 1)
 	{
@@ -88,7 +84,7 @@ void	PhoneBook::_setContactByIndex( Contact& contact, int index )
 	}
 }
 
-void	PhoneBook::_incrementNbContacts( void )
+void	PhoneBook::_incrementNbContacts(void)
 {
 	this->_nbContacts++;
 }

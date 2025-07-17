@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:03:44 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 19:33:01 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/17 18:26:26 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ class Contact
 	bool		isFilledUp(void);
 	void		displayForBook(int index);
 	void		displayDetailed(void);
-
 };
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Project.hpp                                        :+:      :+:    :+:   */
+/*   project.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:15:19 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 20:42:43 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/17 18:38:36 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONE_BOOK_HPP
 
 # include <iostream>
+# include <sstream>
 # include <cstdlib>
 # include <limits>
 # include <cctype>
@@ -33,8 +34,9 @@
 # define MSG_COMMAND "Please enter any of following : ADD, SEARCH, EXIT"
 # define MSG_ERRARG "Usage : ./phonebook (No argument required)"
 
-void	searchContact(PhoneBook &book);
-void	tryAddContact(PhoneBook &book);
+void	searchContact(PhoneBook& book);
+void	refill8Contacts(PhoneBook& book);
+void	tryAddContact(PhoneBook& book);
 void	putnl(std::string msg);
 void	put_blue(std::string msg);
 void	put_green_nl(std::string msg);
