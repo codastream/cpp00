@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:15:19 by fpetit            #+#    #+#             */
-/*   Updated: 2025/07/17 18:38:36 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/18 21:31:39 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONE_BOOK_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <sstream>
 # include <cstdlib>
 # include <limits>
@@ -30,6 +31,7 @@
 # define MAGENTA "\033[35m"
 # define CYAN    "\033[36m"
 # define WHITE   "\033[37m"
+# define BWHITE	 "\033[1;37m"
 
 # define MSG_COMMAND "Please enter any of following : ADD, SEARCH, EXIT"
 # define MSG_ERRARG "Usage : ./phonebook (No argument required)"

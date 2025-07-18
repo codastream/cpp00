@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 17:50:04 by fpetit            #+#    #+#             */
-/*   Updated: 2025/07/17 18:45:31 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/18 21:25:36 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,20 @@ std::string	getNonEmptyField(const std::string& prompt, bool *success)
 	*success = false;
 
 	putnl(prompt);
-	while (std::getline(std::cin, input))
+	while (std::getline(std::cin, input) && *success == false)
 	{
 		iStart = input.find_first_not_of(" \t");
 		if (iStart == std::string::npos)
 		{
 			put_red_nl("Please enter a non empty value");
+			putnl(prompt);
 			input.clear();
-			return ("");
 		}
 		else if (!prompt.compare("Phone number?") && !isPhoneNumber(input))
 		{
 			put_red_nl("A phone number should be made of digits only");
+			putnl(prompt);
 			input.clear();
-			return ("");
 		}
 		else if (!input.empty())
 		{

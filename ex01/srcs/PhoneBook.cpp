@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:00:21 by fpetit            #+#    #+#             */
-/*   Updated: 2025/07/18 11:07:47 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/18 21:32:08 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,13 @@ void	PhoneBook::addContact(Contact& contact)
 
 void	PhoneBook::displayPhonebook(void)
 {
-	std::cout << "|" << "     index" << "|" << "first name" << "|" << " last name" \
-		<< "|" << "  nickname"  << "|" << std::endl;
+	std::cout << std::endl << BWHITE << "|" << std::setw(11)  << "index|" << "first name|" << " last name|" \
+		<< "  nickname|" << NC << std::endl;
 	for (int i = 0; i < this->getNbContacts(); i++)
 	{
 		this->getContacts()[i].displayForBook(i + 1);
 	}
+	std::cout << std::endl;
 }
 
 Contact*	PhoneBook::getContacts(void)

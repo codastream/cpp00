@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:02:06 by fpetit            #+#    #+#             */
-/*   Updated: 2025/05/07 20:45:27 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/18 21:35:05 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,14 @@ void	putColumn(std::string field)
 		std::cout << ".";
 	}
 	else if (len < 10)
-	{
-		for (int i = len; i < 10; i++)
-			std::cout << " ";
-		std::cout << field;
-	}
+		std::cout << std::setw(10) << field;
 	else
 		std::cout << field;
 }
 
 void	Contact::displayForBook(int index)
 {
-	std::cout << "|";
+	std::cout << WHITE << "|";
 	std::cout << "         " << index;
 	std::cout << "|";
 	putColumn(this->getFirstName());
@@ -61,7 +57,7 @@ void	Contact::displayForBook(int index)
 	putColumn(this->getLastName());
 	std::cout << "|";
 	putColumn(this->getNickName());
-	std::cout << "|" << std::endl;
+	std::cout << "|" << NC << std::endl;
 }
 
 void	Contact::displayDetailed(void)
