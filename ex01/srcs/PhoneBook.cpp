@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:00:21 by fpetit            #+#    #+#             */
-/*   Updated: 2025/07/18 21:32:08 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/22 15:17:37 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,6 @@ PhoneBook::PhoneBook(void)
 PhoneBook::~PhoneBook(void)
 {
 	return;
-}
-
-void	swapContacts(Contact *p1, Contact *p2)
-{
-	Contact	tmp;
-
-	tmp = *p1;
-	*p1 = *p2;
-	*p2 = tmp;
 }
 
 void	PhoneBook::addContact(Contact& contact)
