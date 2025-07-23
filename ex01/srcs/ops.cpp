@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 17:50:04 by fpetit            #+#    #+#             */
-/*   Updated: 2025/07/18 21:25:36 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/23 12:44:14 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ std::string	getNonEmptyField(const std::string& prompt, bool *success)
 
 void	refill8Contacts(PhoneBook& book)
 {
-	for (int i = 1; i <= 8; i++)
+	for (int i = 1; i <= 8; ++i)
 	{
 		std::ostringstream str;
 		Contact contact = Contact();

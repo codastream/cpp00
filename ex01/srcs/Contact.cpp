@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:02:06 by fpetit            #+#    #+#             */
-/*   Updated: 2025/07/18 21:35:05 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/23 12:35:02 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ Contact::~Contact(void) {
 
 bool	Contact::isFilledUp()
 {
-	return (!this->getFirstName().empty() \
-		&& !this->getLastName().empty() \
-		&& !this->getNickName().empty() \
-		&& !this->getPhoneNumber().empty() \
-		&& !this->getSecret().empty() \
+	return (!getFirstName().empty() \
+		&& !getLastName().empty() \
+		&& !getNickName().empty() \
+		&& !getPhoneNumber().empty() \
+		&& !getSecret().empty() \
 	);
 }
 
@@ -52,75 +52,75 @@ void	Contact::displayForBook(int index)
 	std::cout << WHITE << "|";
 	std::cout << "         " << index;
 	std::cout << "|";
-	putColumn(this->getFirstName());
+	putColumn(getFirstName());
 	std::cout << "|";
-	putColumn(this->getLastName());
+	putColumn(getLastName());
 	std::cout << "|";
-	putColumn(this->getNickName());
+	putColumn(getNickName());
 	std::cout << "|" << NC << std::endl;
 }
 
 void	Contact::displayDetailed(void)
 {
 	put_blue("Name\t");
-	putnl(this->getFirstName());
+	putnl(getFirstName());
 	put_blue("Last name");
-	putnl(this->getLastName());
+	putnl(getLastName());
 	put_blue("Nickname");
-	putnl(this->getNickName());
+	putnl(getNickName());
 	put_blue("Phone\t");
-	putnl(this->getPhoneNumber());
+	putnl(getPhoneNumber());
 	put_blue("Secret\t");
-	putnl(this->getSecret());
+	putnl(getSecret());
 }
 
 std::string Contact::getSecret(void)
 {
-	return (this->_darkestSecret);
+	return (_darkestSecret);
 }
 
 void		Contact::setSecret(std::string secret)
 {
-	this->_darkestSecret = secret;
+	_darkestSecret = secret;
 }
 
 std::string	Contact::getFirstName(void)
 {
-	return (this->_firstName);
+	return (_firstName);
 }
 
 void		Contact::setFirstName(std::string firstName)
 {
-	this->_firstName = firstName;
+	_firstName = firstName;
 }
 
 std::string	Contact::getLastName(void)
 {
-	return (this->_lastName);
+	return (_lastName);
 
 }
 
 void		Contact::setLastName(std::string lastName)
 {
-	this->_lastName = lastName;
+	_lastName = lastName;
 }
 
 std::string	Contact::getNickName(void)
 {
-	return (this->_nickName);
+	return (_nickName);
 }
 
 void		Contact::setNickName(std::string nickName)
 {
-	this->_nickName = nickName;
+	_nickName = nickName;
 }
 
 std::string	Contact::getPhoneNumber(void)
 {
-	return (this->_phoneNumber);
+	return (_phoneNumber);
 }
 
 void		Contact::setPhoneNumber(std::string phoneNumber)
 {
-	this->_phoneNumber = phoneNumber;
+	_phoneNumber = phoneNumber;
 }

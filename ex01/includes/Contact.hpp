@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:03:44 by fpetit            #+#    #+#             */
-/*   Updated: 2025/07/18 21:07:26 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/23 13:22:41 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@ class Contact
 		Contact(void);
 		~Contact(void);
 
-		std::string getSecret(void);
 		void		setSecret(std::string secret);
-		std::string	getFirstName(void);
 		void		setFirstName(std::string firstName);
-		std::string	getLastName(void);
 		void		setLastName(std::string lastName);
-		std::string	getNickName(void);
 		void		setNickName(std::string nickName);
-		std::string	getPhoneNumber(void);
 		void		setPhoneNumber(std::string phoneNumber);
 		bool		isFilledUp(void);
 		void		displayForBook(int index);
 		void		displayDetailed(void);
-
+		
 	private:
+		std::string	getFirstName(void);
+		std::string getSecret(void);
+		std::string	getLastName(void);
+		std::string	getNickName(void);
+		std::string	getPhoneNumber(void);
 		std::string _darkestSecret;
 		std::string _firstName;
 		std::string _lastName;

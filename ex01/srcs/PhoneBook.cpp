@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:00:21 by fpetit            #+#    #+#             */
-/*   Updated: 2025/07/22 15:17:37 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/23 13:27:28 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,36 @@
 
 PhoneBook::PhoneBook(void)
 {
-	this->_nbContacts = 0;
-	return;
+	_nbContacts = 0;
+	_insertCount = -1;
 }
 
-PhoneBook::~PhoneBook(void)
-{
-	return;
-}
+PhoneBook::~PhoneBook(void) {}
 
 void	PhoneBook::addContact(Contact& contact)
 {
-	unsigned int	addIndex;
+	int	insertIndex;
 
-	if (this->getNbContacts() == MAX_CONTACTS)
+	if (getNbContacts() == MAX_CONTACTS)
 	{
-		addIndex = 0;
+		_insertCount++;
+		insertIndex = _insertCount % 8;
 	}
 	else
 	{
-		this->_incrementNbContacts();
-		addIndex = this->getNbContacts() - 1;
+		_incrementNbContacts();
+		insertIndex = getNbContacts() - 1;
 	}
-	_setContactByIndex(contact, addIndex);
+	_setContactByIndex(contact, insertIndex);
 }
 
 void	PhoneBook::displayPhonebook(void)
 {
 	std::cout << std::endl << BWHITE << "|" << std::setw(11)  << "index|" << "first name|" << " last name|" \
 		<< "  nickname|" << NC << std::endl;
-	for (int i = 0; i < this->getNbContacts(); i++)
+	for (int i = 0; i < getNbContacts(); i++)
 	{
-		this->getContacts()[i].displayForBook(i + 1);
+		getContacts()[i].displayForBook(i + 1);
 	}
 	std::cout << std::endl;
 }
@@ -74,11 +72,11 @@ void	PhoneBook::_setContactByIndex(Contact& contact, int index)
 {
 	if (index >= 0 && index <= MAX_CONTACTS - 1)
 	{
-		this->_contacts[index] = contact;
+		_contacts[index] = contact;
 	}
 }
 
 void	PhoneBook::_incrementNbContacts(void)
 {
-	this->_nbContacts++;
+	_nbContacts++;
 }

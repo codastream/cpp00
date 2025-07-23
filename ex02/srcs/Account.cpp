@@ -6,7 +6,7 @@
 /*   By: fpetit <fpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 19:00:01 by fpetit            #+#    #+#             */
-/*   Updated: 2025/07/22 15:13:07 by fpetit           ###   ########.fr       */
+/*   Updated: 2025/07/23 12:41:15 by fpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void	Account::displayAccountsInfos( void )
 
 Account::Account( int initial_deposit )
 {
-	this->_accountIndex = _nbAccounts;
-	this->_amount = initial_deposit;
-	this->_nbDeposits = 0;
-	this->_nbWithdrawals = 0;
+	_accountIndex = _nbAccounts;
+	_amount = initial_deposit;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
 	_nbAccounts++;
 	_totalAmount += initial_deposit;
 	_displayTimestamp();
